@@ -42,7 +42,7 @@ public class StudentController {
         return ResponseEntity.ok().body(student);
     }
 
-    @PostMapping("/studentS")
+    @PostMapping("/students")
     public Student createStudent(@Valid @RequestBody Student student) {
         System.out.println("SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE ");
         return studentRepo.save(student);
@@ -58,6 +58,7 @@ public class StudentController {
         student.setEmailId(studentDetails.getEmailId());
         student.setLastName(studentDetails.getLastName());
         student.setFirstName(studentDetails.getFirstName());
+        student.setAverage(studentDetails.getAverage());
         final Student updatedStudent = studentRepo.save(student);
         return ResponseEntity.ok(updatedStudent);
     }
